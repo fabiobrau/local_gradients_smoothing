@@ -132,3 +132,6 @@ dmypy.json
 *.code-workspace
 .history
 .vscode
+
+# PyCharm
+.idea

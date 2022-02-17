@@ -4,4 +4,4 @@ channels:
 dependencies:
   - torchvision
   - pytorch
-  - pillow
+  - pillow=9.0.1

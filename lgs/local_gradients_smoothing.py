@@ -1,12 +1,12 @@
-import torch
 from typing import Union
+import torch
 from torchvision.transforms import ToTensor
 from PIL.Image import Image
 from PIL.ImageOps import grayscale
-import gradient
+from lgs import gradient
 
 
-class LGS:
+class LocalGradientsSmoothing:
     def __init__(self, window_size: int,
                  overlap: int,
                  smoothing_factor: float,
