@@ -3,12 +3,6 @@ Implements the Local Gradients Smoothing (LGS) technique for defense against adv
 [Naseer, Muzammal, Salman Khan, and Fatih Porikli. "Local gradients smoothing: Defense against localized adversarial attacks." 2019 IEEE Winter Conference on Applications of Computer Vision (WACV). IEEE, 2019.
 ](https://ieeexplore.ieee.org/iel7/8642793/8658235/08658401.pdf)
 
-### Install 
-```
-$> git pull 
-$> conda env create -n conda-env.yml 
-```
-
 ### Usage
 
 Clone this repository
