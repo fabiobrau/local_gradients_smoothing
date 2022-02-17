@@ -1,19 +1,20 @@
 from configparser import ConfigParser
-from torchvision.transforms import PILToTensor, ToPILImage
+from torchvision.transforms import ToTensor, ToPILImage
 from PIL import Image
 import torch
 from lgs import LGS
 
 
 def test():
-    img = Image.open('test_image.jpg')
     cfg = ConfigParser()
     cfg.read('defaults.ini')
+    img_path = cfg['TESTING']
+    img = Image.open(img_path)
     loc_grad_smooth = LGS(**cfg['DEFAULT'])
-    img_t = PILToTensor()(img) / 255.
-    norm_grad = loc_grad_smooth.normalized_grad(img_t.unsqueeze(0))
-    norm_grad.squeeze_()
-    collage_t = torch.cat([img_t, norm_grad], dim=-1)
+    grad_mask = loc_grad_smooth(img)
+    grad_mask = grad_mask.repeat((3, 1, 1))
+    img_t = ToTensor()(img)
+    collage_t = torch.cat([img_t, grad_mask, img_t * (1 - grad_mask)], dim=-1)
     collage = ToPILImage()(collage_t)
     collage.show()
 
