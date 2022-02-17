@@ -12,10 +12,10 @@ class LocalGradientsSmoothing:
                  smoothing_factor: float,
                  threshold: float,
                  grad_method: str):
-        self.window_size = int(window_size)
-        self.overlap = int(overlap)
-        self.smoothing_factor = float(smoothing_factor)
-        self.threshold = float(threshold)
+        self.window_size = window_size
+        self.overlap = overlap
+        self.smoothing_factor = smoothing_factor
+        self.threshold = threshold
         self.to_tensor = ToTensor()
 
         self.grad = getattr(gradient, grad_method)()
