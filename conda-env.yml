@@ -1,0 +1,7 @@
+name: LGS
+channels:
+  - pytorch
+dependencies:
+  - torchvision
+  - pytorch
+  - pillow
