@@ -1,6 +1,6 @@
 from typing import Union
 import torch
-from torchvision.transforms import ToTensor
+from torchvision.transforms import ToTensor, Grayscale
 from PIL.Image import Image
 from PIL.ImageOps import grayscale
 from lgs import gradient
@@ -49,7 +49,10 @@ class LocalGradientsSmoothing:
         if isinstance(img, Image):
             img_t = self.pil_to_tensor(img)
         elif isinstance(img, torch.Tensor):
-            img_t = img.clone()
+            if img.shape[1] == 1:  # GrayScale image
+                img_t = img.clone()
+            else:
+                img_t = Grayscale()(img)
         else:
             raise NotImplementedError(
                 f'Type of {type(img)} not supported yet.')

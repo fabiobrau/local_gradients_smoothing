@@ -18,7 +18,7 @@ or
 >>> import sys
 >>> sys.add('<path-of-local_gradients_smoothing>')
 >>> from lgs import LocalGradientSmoothing # Is a class and needs parameters
->>> from lgs import get_lgs_mask # Is a function
+>>> from lgs import get_lgs_mask # Is a function with defaults parameters
 ```
 The test will provide the following image
 ![](example_result.jpg)
