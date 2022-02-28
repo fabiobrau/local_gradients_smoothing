@@ -22,7 +22,11 @@ class LocalGradientsSmoothing:
         self.stride = self.window_size - self.overlap
         self.fold = torch.nn.functional.fold
         self.unfold = torch.nn.functional.unfold
-
+    
+    def to(self, device: torch.device):
+        self.grad = self.grad.to(device)
+        return self
+        
     def normalized_grad(self, img: torch.Tensor) -> torch.Tensor:
         img_grad = self.grad(img)
         max_grad = torch.amax(img_grad, dim=(2, 3), keepdim=True)
